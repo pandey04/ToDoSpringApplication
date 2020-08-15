@@ -12,9 +12,11 @@ public class LoginService {
 		Class.forName("com.mysql.cj.jdbc.Driver"); 
 		
 		
-		  Connection con =
-		  DriverManager.getConnection("jdbc:mysql://localhost:3306/demoapp?" +
-		  "user=root&password=root@123");
+		/*
+		 * Connection con =
+		 * DriverManager.getConnection("jdbc:mysql://localhost:3306/demoapp?" +
+		 * "user=root&password=root@123");
+		 */
 		 
 		 
 		
@@ -24,10 +26,10 @@ public class LoginService {
 		 * "user=root&password=root@123");
 		 */
 		 
-		/*
-		 * Connection con=DriverManager.getConnection(
-		 * "jdbc:mysql://mysqldb:33060/demoapp","dbusr","root@123");
-		 */ 
+		
+		  Connection con=DriverManager.getConnection(
+		  "jdbc:mysql://mysqldb:3306/demoapp","dbusr","root@123");
+		  
 		System.out.println("Database connection successful");
 		PreparedStatement ps=con.prepareStatement(  
 		"select * from login where username=? and password=?");  
