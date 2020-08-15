@@ -1,11 +1,13 @@
-FROM tomcat:jdk8
+FROM java:8-jdk-alpine
 
 MAINTAINER shivangiPandey
 
-ENV MYSQL_DATABASE=demoapp \
-    MYSQL_ROOT_PASSWORD=root@123
-
-COPY target/springboot*.jar /usr/local/tomcat/webapps/
 
 
-EXPOSE 8080
+COPY target/springboot-first-web-application-0.0.1-SNAPSHOT.war /usr/
+WORKDIR /usr
+RUN sh -c 'touch springboot-first-web-application-0.0.1-SNAPSHOT.war'
+ENTRYPOINT ["java","-jar","springboot-first-web-application-0.0.1-SNAPSHOT.war"]
+
+
+EXPOSE 9990
